@@ -33,7 +33,7 @@ GuessBtn.addEventListener("click", () => {
     modalContent.innerHTML = "the number is too low";
     modal.classList.add("active");
   } else {
-    modalContent.innerHTML = "congruations you win ";
+    modalContent.innerHTML = "Congratulations! You win.";
     modalContent.innerHTML += ` <span>you have tried ${CountGuess} times</span>`;
     modalContent.innerHTML += `<button class="play-again-btn"> Play Again</button>`;
     modal.classList.add("active");

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resuable Modal</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <div class="title">Resuable Modal</div>
+    <div class="open__modal__button__container"></div>
+    <div>
+      <button class="open__modal__button">Open Modal</button>
+    </div>
+    <!-- modal -->
+    <div class="modal">
+      <div class="modal__content__container">
+        <div class="modal__content"></div>
+      </div>
+      <div class="modal__message">form succesfully sent</div>
+      <div class="modal__form">
+        <form action="">
+          <div class="form-row">
+            <label for="">Fullname*</label>
+            <input type="text" name="fullname" id="name" required />
+          </div>
+          <div class="form-row">
+            <label for="">Email*</label>
+            <input type="email" name="Email" id="email" required />
+          </div>
+          <div class="gender-row">
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender" value="male" />Male
+            <input type="radio" name="gender" value="female" />Female
+            <input type="radio" name="gender" value="others" />Others
+          </div>
+          <div class="submit__btn__container">
+            <button type="submit" class="submit__btn">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal__close__btn">&times;</div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

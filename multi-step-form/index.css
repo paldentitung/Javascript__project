@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: serif, Arial, Helvetica, sans-serif;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  gap: 10px;
+  background: linear-gradient(45deg, lightblue, #5a1fa7, lightblue);
+  background-size: 400% 100%;
+  animation: Moving 5s infinite linear;
+}
+.title {
+  font-size: 2rem;
+}
+.step {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgb(255, 200, 98);
+  gap: 20px;
+  padding: 20px;
+  backdrop-filter: blur(16px);
+}
+.step input,
+select {
+  width: 75%;
+  padding: 10px;
+  outline: none;
+  font-size: 1.1rem;
+}
+.btn__container {
+  display: flex;
+  gap: 30px;
+}
+.btn {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.next__btn {
+  color: white;
+  background: linear-gradient(45deg, pink, blue, lightblue);
+}
+.next__btn:hover {
+  box-shadow: 1px 4px 8px pink, 0px 6px 9px blue;
+}
+.next__btn:active {
+  box-shadow: 1px 4px 8px blue, 0px 6px 9px pink;
+}
+.pre__btn,
+.back__btn {
+  color: rgb(2, 2, 2);
+  background: linear-gradient(45deg, lightgreen, lightblue, white);
+}
+.pre__btn:hover,
+.back__btn:hover {
+  box-shadow: 1px 4px 8px lightgreen, 0px 6px 9px lightblue;
+}
+.pre__btn:active,
+.back__btn:active {
+  box-shadow: 1px 4px 8px lightblue, 0px 6px 10px lightcyan;
+}
+.step.active {
+  display: flex;
+}
+.submit__btn {
+  background: linear-gradient(45deg, violet, lightblue, cyan, white);
+}
+.submit__btn:hover {
+  box-shadow: 1px 5px 10px violet, 0px 5px 9px lightblue, 0px 4px 10px white;
+}
+.reset__btn {
+  color: white;
+  background: linear-gradient(
+    45deg,
+    rgb(243, 89, 89),
+    rgb(180, 1, 1),
+    rgb(117, 38, 38)
+  );
+}
+.reset__btn:hover {
+  box-shadow: 1px 4px 8px rgb(117, 38, 38), 0px 6px 9px rgb(243, 89, 89);
+}
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  flex-direction: column;
+}
+.modal__content {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  background: white;
+  color: black;
+  padding: 20px;
+  margin-top: 40px;
+}
+.modal__close__btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.modal__close__btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.modal.active {
+  display: flex;
+}
+.summary__content__div {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  border: 1px solid white;
+}
+.summary__content__div span {
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid white;
+}
+
+.progress__container {
+  width: 400px;
+  background-color: white;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.progress__bar {
+  width: 0%;
+  height: 100%;
+  background-color: #9e20f1;
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+/* @keyframes Moving {
+  from {
+    background-position: -400% 400%;
+  }
+  to {
+    background-position: 0;
+  }
+} */

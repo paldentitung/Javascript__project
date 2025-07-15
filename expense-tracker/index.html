@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="title">Expense Tracker</div>
+    <div class="container">
+      <div class="user__balance">
+        Balance:
+        <span id="balance">0</span>
+      </div>
+      <form action="">
+        <input
+          type="text"
+          placeholder="Description"
+          id="description"
+          required
+        />
+        <input type="number" id="amount" placeholder="Amount" required />
+
+        <select name="" id="select__type">
+          <option value="" disabled selected>select</option>
+          <option value="income">income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <button type="submit" id="add">Add</button>
+      </form>
+
+      <ul class="transaction__details">
+        transaction__details
+      </ul>
+    </div>
+    <!-- modal -->
+    <div class="modal">
+      <div class="modal__content">lorem lorem</div>
+      <div class="modal__close__btn">&times;</div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

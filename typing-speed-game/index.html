@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Speed Game</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="title">Typing speed Game</div>
+    <div class="container">
+      <div class="sentence">lorem lorem lorem lorem</div>
+      <div class="input-container">
+        <textarea
+          name=""
+          id="userInput"
+          placeholder="write something..."
+          disabled
+        ></textarea>
+      </div>
+      <div class="sub-container">
+        <div>Time: <span id="time">60s</span></div>
+        <div>WPM: <span id="wpm">0</span></div>
+        <div>Accuracy : <span id="accuracy">100%</span></div>
+        <button id="start-btn">Start</button>
+      </div>
+    </div>
+    <!-- modal -->
+    <div class="modal">
+      <div class="modal__content">lorem lorem</div>
+      <div class="modal__close__btn">&times;</div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

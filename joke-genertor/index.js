@@ -1,8 +1,3 @@
-// fetch("https://official-joke-api.appspot.com/random_joke")
-//   .then((res) => res.json())
-//   .then((data) => {
-//     console.log(data);
-//   });
 const savedBtn = document.querySelector(".saved__btn");
 const randomBtn = document.querySelector(".random__btn");
 const joke = document.getElementById("joke");
@@ -12,14 +7,15 @@ const modalCloseBtn = document.querySelector(".modal__close__btn");
 const jokeSaved = document.getElementById("joke__saved");
 const jokeSavedContainer = document.querySelector(".joke__saved__container");
 const jokePunchline = document.querySelector(".joke__punchline");
-const jokesetup = document.querySelector(".joke__setup");
+const jokeSetup = document.querySelector(".joke__setup"); // fixed typo
 let currentJoke = null;
 
-async function JokeGenertor() {
+async function JokeGenerator() {
+  // fixed typo
   let res = await fetch("https://official-joke-api.appspot.com/random_joke");
   let data = await res.json();
 
-  jokesetup.innerHTML = `${data.setup}`;
+  jokeSetup.innerHTML = `${data.setup}`;
 
   setTimeout(() => {
     jokePunchline.innerHTML = `${data.punchline}`;
@@ -27,6 +23,7 @@ async function JokeGenertor() {
 
   currentJoke = data;
 }
+
 function savedJoke() {
   let li = document.createElement("li");
   let punchlineSpan = document.createElement("span");
@@ -47,15 +44,35 @@ function savedJoke() {
   deletBtn.addEventListener("click", () => {
     modal.classList.add("active");
     modalContent.innerHTML = "are you sure you want to delete the joke";
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.remove("active");
-        jokeSaved.removeChild(li);
-      }
+
+    const existingBtnContainer = modalContent.querySelector(
+      ".modal__btn__container"
+    );
+    if (existingBtnContainer) {
+      existingBtnContainer.remove();
+    }
+
+    let button1 = document.createElement("button");
+    let button2 = document.createElement("button");
+    let div = document.createElement("div");
+
+    button1.innerHTML = "Delete";
+    button2.innerHTML = "Back";
+    div.appendChild(button1);
+    div.appendChild(button2);
+    div.classList.add("modal__btn__container");
+    modalContent.appendChild(div);
+    button1.addEventListener("click", () => {
+      jokeSaved.removeChild(li);
+      modal.classList.remove("active");
+    });
+    button2.addEventListener("click", () => {
+      modal.classList.remove("active");
     });
   });
 }
-randomBtn.addEventListener("click", JokeGenertor);
+
+randomBtn.addEventListener("click", JokeGenerator);
 savedBtn.addEventListener("click", savedJoke);
 
 modalCloseBtn.addEventListener("click", () => {

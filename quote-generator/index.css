@@ -19,6 +19,11 @@ body {
 .title {
   font-size: 2rem;
 }
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 .container {
   width: 100%;
   display: flex;
@@ -27,13 +32,33 @@ body {
   flex-direction: column;
   gap: 20px;
   max-width: 800px;
-  border: 1px solid cyan;
   height: 100%;
-  max-height: 400px;
+  max-height: 500px;
   padding: 20px;
-  animation: burn 2s infinite linear;
   margin: 10px;
-  overflow: hidden;
+  position: relative;
+
+  background: linear-gradient(70deg, rgb(26, 112, 112), rgb(202, 151, 159));
+}
+.container::after,
+.container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  z-index: -1;
+  border-radius: 5px;
+  background: conic-gradient(
+    from var(--angle),
+    lightblue,
+    rgb(26, 112, 112),
+    skyblue
+  );
+  animation: spin 2s linear infinite;
+}
+.container::before {
+  filter: blur(5px);
 }
 .quote-container {
   flex: 2;
@@ -91,19 +116,17 @@ body {
 }
 
 .saved-quote ul {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
+
   gap: 20px;
   width: 100%;
-  height: 150px;
-  overflow-y: scroll;
+  height: 200px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 .saved-quote ul::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
 }
 
 .saved-quote ul li {
@@ -181,14 +204,11 @@ body {
 .modal.active {
   display: flex;
 }
-@keyframes burn {
-  0% {
-    box-shadow: 0px 0px 0px cyan;
+@keyframes spin {
+  from {
+    --angle: 0deg;
   }
-  50% {
-    box-shadow: 2px 4px 9px cyan;
-  }
-  100% {
-    box-shadow: 0px 0px 3px cyan;
+  to {
+    --angle: 360deg;
   }
 }

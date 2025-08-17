@@ -1,24 +1,17 @@
 # 📜 Quote Generator App
 
-A simple JavaScript app that fetches random quotes from a mock backend, allows users to save their favorite quotes, and displays a message when no saved quotes exist.
+Generate random quotes, save favorites, and delete them with a confirmation modal.  
+Uses `localStorage` to persist saved quotes and `json-server` as a mock backend.
 
----
+## Features
 
-## 🚀 Features
+- Generate random quotes 🎲
+- Save favorites 💾
+- Delete quotes ❌
+- Shows message when no quotes saved 📭
 
-- 🎲 Generate random quotes
-- 💾 Save favorite quotes
-- ❌ Delete quotes with confirmation modal
-- 📭 "No saved quotes" message when list is empty
-- 🔌 Uses `json-server` for mock backend
+## Setup
 
----
-
-## 🧰 Tech Stack
-
-- HTML
-- CSS
-- JavaScript (Vanilla)
-- JSON Server (for mock backend)
-
----
+1. Install JSON Server: `npm install -g json-server`
+2. Run backend: `json-server --watch db.json --port 3000`
+3. Open `index.html` in a browser

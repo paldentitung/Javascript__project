@@ -107,9 +107,15 @@ body {
   width: 100%;
   padding: 10px;
   max-width: 400px;
+  height: 150px;
   background: white;
   color: rgb(0, 0, 0);
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
   text-align: center;
   transition: all 0.3s;
 }
@@ -128,13 +134,35 @@ body {
   font-size: 1.8rem;
   transition: all 0.3s;
 }
-.modal__close__btn:hover,
-.modal__content:hover {
+.modal__close__btn:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 .modal.active {
   display: flex;
+}
+.modal__btn__container {
+  display: flex;
+  gap: 20px;
+}
+.modal__btn__container button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+.modal__btn__container button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 1px 3px 9px rgb(206, 206, 206);
+}
+.modal__btn__container button:nth-child(1) {
+  color: white;
+  background: linear-gradient(70deg, red, rgb(202, 14, 14), rgb(175, 2, 2));
+}
+.modal__btn__container button:nth-child(2) {
+  background: linear-gradient(70deg, rgb(15, 212, 15));
 }
 .joke__saved__container {
   display: flex;
@@ -146,11 +174,26 @@ body {
   overflow-y: scroll;
 }
 .joke__saved__container::-webkit-scrollbar {
-  width: 0;
+  width: 8px;
 }
+
+.joke__saved__container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.joke__saved__container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, rgb(99, 99, 252), rgb(31, 31, 194));
+}
+
+.joke__saved__container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .joke__saved__container__close__btn {
   width: 40px;
   height: 40px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,12 +224,16 @@ body {
   flex-direction: column;
 }
 .joke__delete {
+  margin-left: auto;
   width: 30px;
   height: 30px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   border: none;
   border-radius: 8px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* remove extra padding */
   transition: all 0.3s;
   cursor: pointer;
   color: white;
@@ -196,7 +243,17 @@ body {
     rgb(177, 22, 48),
     rgb(209, 0, 0)
   );
+  flex-shrink: 0;
 }
 .joke__delete:hover {
   box-shadow: 1px 3px 7px rgb(252, 75, 75), 0px 4px 9px rgb(209, 0, 0);
+}
+@media (min-width: 800px) {
+  .container {
+    max-width: 700px;
+  }
+  .sub__container {
+    height: 500px;
+    padding: 5%;
+  }
 }
